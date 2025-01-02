@@ -81,3 +81,19 @@
   text-decoration: none;
   margin-left: 4px;
 }
+.items {
+  background: #f9fafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 0.5rem;
+  margin-bottom: 12px;
+}
+.items label {
+  width: 80%;
+  text-align: left;
+}
+.checkbox-scale {
+  transform: scale(1.5);
+}

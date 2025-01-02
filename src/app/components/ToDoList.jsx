@@ -9,10 +9,14 @@ export default function ToDoList() {
   //   const input = 756
 
   const addListHandler = () => {
-    setTodos([...todos, input]);
+    setTodos([input, ...todos]);
     setInput("");
   };
 
+  function clearItem(index) {
+    todos.splice(index, 1);
+    setTodos([...todos]);
+  }
   return (
     <div className={styles.taskList}>
       <h1 className={styles.title}>To-Do List</h1>
@@ -37,8 +41,24 @@ export default function ToDoList() {
       </div>
       <div className={styles["list-items"]}>
         No tasks yet. Add one above!
-        {todos.map((todo, index) => {
-          return <div key={index}>{todo}</div>;
+        {todos.map((todos, index) => {
+          return (
+            <div key={index} className={styles.items}>
+              <input
+                type="checkbox"
+                id="todoItem"
+                className={styles[`checkbox-scale`]}
+              />
+              <label>{todos}</label>
+              <button
+                onClick={() => {
+                  clearItem(index);
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          );
         })}
       </div>
       <div className={styles.footer}>
